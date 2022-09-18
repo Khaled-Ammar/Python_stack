@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Plushy Store</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- linking a javascript file -->
+<!-- linking an image -->
+<img src="{{ url_for('static', filename='product-image.png') }}">
+<img src="{{ url_for('static', filename='cart-dark.png') }}">
+
+     <h3>My Flask Template</h3>
+        <p>Phrase: {{ phrase }}</p>
+        <p>Times: {{ times }}</p>
+      
+    {% for x in range(0,times): %}
+        <p>{{ phrase }}</p>
+    {% endfor %}
+      
+    {% if phrase == "hello" %}
+        <p>The phrase says hello</p>
+    {% endif %}
+
+        <header><p>FREE PHONE GRIP ON SELECT PURCHASES</p></header>
+        <div class="search">
+            <h1>PlushStar</h1>
+            <input class="field" type="text" name="searchfield" id="searchf" placeholder="Search">
+            <p id="count">0</p>
+            <figure><img src="cart-dark.png" alt="a picture of a shopping cart"></figure>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">New</a></li>
+                <li class="products"><a href="">Products</a></li>
+                <li><a href="">Sales</a></li>
+                <li><a href="">Blog</a></li>
+                <li onclick="alert('Contact us at 555-5555')">Contact Us</li>
+            </ul>
+        </nav>
+        <div class="storename">
+            <h2>Plushy Store</h2>
+        </div>
+        <div class="contentheader">
+                <p id="change">62 Products, sorted by Best Selling</p>
+                <p>Sort By</p><select onchange="sort()" name="sortby" id="sortIt">
+                    <option value="">Best Selling</option>
+                    <option value="">Price</option>
+                </select> 
+        </div>
+        <div class="content">
+            <img src="product-image.png" alt=""><img src="product-image.png" alt=""><img src="product-image.png" alt=""><img src="product-image.png" alt="">
+        </div>
+        <div class="description">
+            <p>Mischief Mouse</p>
+            <p>Shy Shrew</p>
+            <p>Hungry Hamster</p>
+            <p>Chilly Chinchilla</p>
+        </div>
+        <div class="buttons">
+            <button onclick="add1()" class="btn">BUY</button>
+            <button onclick="add1()" class="btn">BUY</button>
+            <button onclick="add1()" class="btn">BUY</button>
+            <button onclick="add1()" class="btn">BUY</button>
+        </div>
+        <script src="script.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    </body>
+</html>
