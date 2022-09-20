@@ -1,0 +1,1 @@
+call C:\Users\ابداع\Desktop\python_stack\my_django_env\djangoPy3Env\Scripts\activate

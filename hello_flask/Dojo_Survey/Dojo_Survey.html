@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h1>Index Page</h1>
+
+    <h3>Create a User</h3>
+
+    <form action='/users' method='post'>
+        <p> Name: <input type='text' name='name'></p>
+        <p>Dop Location <select name="Location">
+            <option value="Son Jose">Son Jose</option>
+            <option value="Tulkarem">Tulkarem</option>
+        </select></p>
+
+        <p>Favorite Language <select name="fav_lang">
+            <option value="Python">Python</option>
+        </select></p>
+        <p><textarea name="comment"  cols="30" rows="5"></textarea></p>
+        <input type='submit' value='create user'>
+    </form>
+
+</body>
+
+</html>
