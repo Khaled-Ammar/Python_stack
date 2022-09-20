@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main style="border:2px solid">
+    <h1 style="text-align:center; margin-top: 10%; margin-left: 5%;">counter</h1>
+    <span style="margin-left: 51.5%; border:2px solid ">{{session['count']}}</span>
+
+    <form action="/increase" , methods="post">
+        <input style="background-color: rgb(26, 235, 53); margin-left:50.5%;margin-top:3%;border-radius: 5px" type="submit" value="Add">
+    </form>
+
+    <form style="margin: 10px;" action="/reset">
+        <input style="background-color: rgb(228, 24, 24); margin-left:50%; border-radius: 5px" type="submit" value="Reset">
+    </form>
+</main>
+
+</body>
+
+</html>
