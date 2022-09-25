@@ -1,0 +1,41 @@
+>>> from firstapp.models import *
+>>> User.objects.create(first_name="ahmed",last_name="saed",email="sss@ss.com",age=12)
+<User: User object (1)>
+>>> User.objects.create(first_name="zain",last_name="sd",email="sss@ss.com",age=22)
+<User: User object (2)>
+>>> User.objects.create(first_name="sam",last_name="sd",email="sam@ss.com",age=22)
+<User: User object (3)>
+>>> User.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'ahmed', 'last_name': 'saed', 'email': 'sss@ss.com', 'age': 12, 'created_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>)}, {'id': 2, 'first_name': 'zain', 'last_name': 'sd', 'email': 'sss@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 2, 774769, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 38, 2, 774769, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'sam', 'last_name': 'sd', 'email': 'sam@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>)}]>
+>>> User.objects.last.values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'function' object has no attribute 'values'
+>>> User.objects.last().values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'values'
+>>> User.objects.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x00000264D7F795C0>, 'id': 3, 'first_name': 'sam', 'last_name': 'sd', 'email': 'sam@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>)}
+>>> User.objects.first().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x00000264D7F79630>, 'id': 1, 'first_name': 'ahmed', 'last_name': 'saed', 'email': 'sss@ss.com', 'age': 12, 'created_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>)}
+>>> c=User.objects.get(id=3)
+>>> c.last_name="Panakes"
+>>> c.save()
+>>> c.get()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'get'
+>>> User.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'ahmed', 'last_name': 'saed', 'email': 'sss@ss.com', 'age': 12, 'created_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>)}, {'id': 2, 'first_name': 'zain', 'last_name': 'sd', 'email': 'sss@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 2, 774769, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 38, 2, 774769, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'sam', 'last_name': 'Panakes', 'email': 'sam@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 40, 43, 332956, tzinfo=<UTC>)}]>
+>>>
+>>> c=User.objects.get(id=2)
+>>> c.delete()
+(1, {'firstapp.User': 1})
+>>> User.objects.all().order_by("first_name")
+<QuerySet [<User: User object (1)>, <User: User object (3)>]>
+>>> User.objects.all().order_by("first_name").values()
+<QuerySet [{'id': 1, 'first_name': 'ahmed', 'last_name': 'saed', 'email': 'sss@ss.com', 'age': 12, 'created_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>)}, {'id': 3, 'first_name': 'sam', 'last_name': 'Panakes', 'email': 'sam@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 40, 43, 332956, tzinfo=<UTC>)}]>
+>>> User.objects.all().order_by("-first_name").values()
+<QuerySet [{'id': 3, 'first_name': 'sam', 'last_name': 'Panakes', 'email': 'sam@ss.com', 'age': 22, 'created_at': datetime.datetime(2022, 9, 25, 11, 38, 11, 930569, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 40, 43, 332956, tzinfo=<UTC>)}, {'id': 1, 'first_name': 'ahmed', 'last_name': 'saed', 'email': 'sss@ss.com', 'age': 12, 'created_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 25, 11, 37, 32, 770559, tzinfo=<UTC>)}]>
+>>> User.objects.create(first_name="sam",last_name="sd",email="sam@ss.com",age=22)

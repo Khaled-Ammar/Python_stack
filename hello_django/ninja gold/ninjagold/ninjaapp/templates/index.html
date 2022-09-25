@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ninja Gold</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    line-height: 3;
+    text-align: center;
+    margin-top: 2em;
+    width: 12em;
+    height: 10em;
+    border: 2px solid black;
+}
+
+h3 {
+    margin-left: 10px;
+    line-height: 2.5;
+}
+
+.input {
+    width: 5%;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: aquamarine;
+    width: 6em;
+    box-shadow: 2px 3px black;
+}
+
+h4 {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.reset {
+    margin-top: 2%;
+    margin-left: 4%;
+}
+
+.text {
+    height: 100px;
+    border: 2px solid black;
+    overflow: scroll;
+    margin-top: 3%;
+}
+
+    </style>
+    
+</head>
+
+<body>
+    <h3>Your Gold: <input class="input" type="text" placeholder={{request.session.money}}></h3>
+    <div class="flex">
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <div class="box">
+                <input type="hidden" name="money" value="farm">
+                <p>Farm</p>
+                <p>(earns 10-20 gold)</p>
+                <input class="btn" type="submit" value="Find Gold!">
+
+            </div>
+        </form>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <div class="box">
+                <input type="hidden" name="money" value="cave">
+                <p>Cave</p>
+                <p>(earns 10-20 gold)</p>
+                <input class="btn" type="submit" value="Find Gold!">
+            </div>
+        </form>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <div class="box">
+                <input type="hidden" name="money" value="house">
+                <p>House</p>
+                <p>(earns 10-20 gold)</p>
+                <input class="btn" type="submit" value="Find Gold!">
+            </div>
+        </form>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <div class="box">
+                <input type="hidden" name="money" value="quest">
+                <p>Quest</p>
+                <p>(earns/takes 10-50 gold)</p>
+                <input class="btn" type="submit" value="Find Gold!">
+            </div>
+        </form>
+    </div>
+    <form class="reset" action="/reset">
+        <input class="btn" type="submit" value="Reset ME!">
+    </form>
+    <h4>Activites:</h4>
+
+    <div class="text" name="activities">
+        {% for elem in request.session.activities reversed%}
+        {% if 'failed' in elem %}
+        <p style="color:red ;">{{elem}}</p>
+        {% else %}
+        <p style="color: green;">{{elem}}</p>
+        {%endif%}
+        {% endfor %}
+    </div>
+</body>
+
+</html>

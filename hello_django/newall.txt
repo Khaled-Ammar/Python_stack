@@ -1,0 +1,19 @@
+django_intro> django-admin startproject your_project_name_here
+cd project_name_here
+code .
+python manage.py startapp your_app_name_here
+ python manage.py runserver
+for add session # 
+python manage.py migrate
+
+# for data base and each updtae 
+
+  python manage.py makemigrations
+  python manage.py migrate
+# For enter to shell to create rows 
+
+> python manage.py shell
+
+#for accses to data in models files in your project
+from your_app_name_here.models import *  
+
