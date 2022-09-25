@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: Red;
+            font-family: cursive;
+        }
+
+        p {
+            font-family: cursive;
+        }
+
+        .btn {
+            border: 2px solid red;
+            box-shadow: 4px 4px 4px 4px black;
+            background-color: blueviolet;
+            color: white;
+        }
+
+        form {
+            margin: 50px;
+            margin-left: 200px;
+        }
+
+        .result {
+            background-color: yellow;
+            font-family: cursive;
+            width: 6%;
+        }
+
+        .result1 {
+            background-color: red;
+            font-family: cursive;
+            width: 6%;
+            color: white;
+        }
+
+        .result2 {
+            background-color: green;
+            font-family: cursive;
+            width: 6%;
+            color: white;
+        }
+
+        .result3 {
+            background-color: aqua;
+            font-family: cursive;
+            width: 6%;
+        }
+    </style>
+</head>
+<body>
+    <form action="result/" method="post">
+        {% csrf_token %}
+        <h1>Welcome To The Great Number Game</h1>
+        <p>im thinking of a number between 1 and 100 </p>
+        <p>Take a Guess !!</p>
+
+        {% if request.session.result == "High" %}
+        <div class="result"> {{request.session.result}}</div>
+        {%endif%}
+
+        {% if request.session.result == "Low" %}
+        <div class="result1">{{request.session.result}}</div>
+        {%endif%}
+
+        {% if request.session.result == "Great Guess" %}
+        <div class="result2">{{request.session.result}}</div>
+        {%endif%}
+    
+        <p><input type="text" name="number" placeholder="Enter Your Number :)"></p>
+        <p><input class="btn" type="submit" value="Submit"></p>
+        <p>The Random number was :{{request.session.num}}</p>
+    </form>
+    <form action="again/">
+        <p><input type="submit" class="btn" value="Play_Again"></p>
+    </form>
+</body>
+</html>

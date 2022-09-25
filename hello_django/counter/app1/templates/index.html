@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            vertical-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin-top:150px ;" >Counter</h1>
+    <p>{{request.session.num}} times</p>
+    <form action="/increment" style="display:inline-block">
+    <button style="background-color:#ec747a ;color:white" >Add two visits</button></form>
+    <form action="destroy_session/" style="display:inline-block">
+    <button style="background-color:green ;color:white;">Reset</button>
+
+    </form>
+</body>
+</html>
