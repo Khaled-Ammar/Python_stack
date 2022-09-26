@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    main>div{
+        margin: 30px;
+    }
+    div div{
+        margin:5px;
+        display: flex;
+        
+        align-items:center;
+
+    }
+    input{
+        margin-left: 20px;
+    }
+    p{
+        width:80px
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class='left'>
+            <h1>Add a Dojo</h1>
+            <form action="addDo" method="post">
+                <div>
+                <p for="name">name</p>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <p for="city">city</p>
+                <input type="text" name="city">
+            </div>
+            <div>
+                <p for="name">state</p>
+                <input type="text" name="state">
+            </div>
+            <button type="submit" style="margin-left:60px;">Add</button>
+
+            </form>
+        </div>
+        <div class="right">
+            <h1>Add a Dojo</h1>
+            <form action="addni" method="post">
+                <div>
+                <p >first name</p>
+                <input type="text" name="first_name">
+            </div>
+            <div>
+                <p for="city">last name</p>
+                <input type="text" name="last_name">
+            </div>
+            <div>
+                <p for="name">Dojo</p>
+                <select name="Dojo" >
+                    {%for doj in dojo%}
+                    <option>{{doj.name}}</option>
+                </select>
+            </div>
+            <button type="submit" style="margin-left:60px;">Add</button>
+
+            </form>
+        </div>
+    </main>
+</body>
+</html>

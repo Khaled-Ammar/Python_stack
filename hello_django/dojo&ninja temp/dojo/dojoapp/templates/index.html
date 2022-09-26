@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .left{
+            margin-left: 5%;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid black;
+        }
+
+        main>div {
+            margin: 30px;
+        }
+
+        div div {
+            margin: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            margin-right: 20px;
+        }
+
+        p {
+            width: 80px
+        }
+
+        footer {
+            
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .last_ul {
+            border: 2px solid black;
+            width: 200px;
+            height: 80px;
+            overflow-y: scroll;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class='left'>
+            <h1>Add a Dojo</h1>
+            <form action="/addDojo" method="post">
+                {%csrf_token%}
+                <div>
+                    <p for="name">name</p>
+                    <input type="text" name="name">
+                </div>
+                <div>
+                    <p for="city">city</p>
+                    <input type="text" name="city">
+                </div>
+                <div>
+                    <p for="name">state</p>
+                    <input type="text" name="state">
+                </div>
+                <button type="submit" style="margin-left:60px;">Add</button>
+            </form>
+        </div>
+        <div class="right">
+            <h1>Add a ninja</h1>
+            <form action="/addninja" method="post">
+                {%csrf_token%}
+                <div>
+                    <p>first name</p>
+                    <input type="text" name="first_name">
+                </div>
+                <div>
+                    <p for="city">last name</p>
+                    <input type="text" name="last_name">
+                </div>
+                <div>
+                    <p for="name">Dojo</p>
+                    <select name="Dojo">
+                        {%for doj in dojo%}
+                        <option value="{{doj.id}}">{{doj.name}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <button type="submit" style="margin-left:60px;">Add</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        {% for i in dojo %}
+        <ul class="last_ul">
+            <h2>{{i.name}}</h2>
+            {% for j in i.ninjas.all %}
+            <li>{{j.first_name}}</li>
+            {%endfor%}
+        </ul>
+        {%endfor%}
+    </footer>
+</body>
+
+</html>
