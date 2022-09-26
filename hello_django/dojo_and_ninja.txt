@@ -1,0 +1,179 @@
+Microsoft Windows [Version 10.0.19044.2006]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\ابداع\Desktop\axsos_academy\python_stack\django>call C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\Scriptsa\activate
+The system cannot find the path specified.
+
+C:\Users\ابداع\Desktop\axsos_academy\python_stack\django>call C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\Scripts\activate
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django>django-admin startproject DojoNinjas
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django>cd DojoNinjas
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py startapp app
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>code .
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py makemigration
+Unknown command: 'makemigration'. Did you mean makemigrations?
+Type 'manage.py help' for usage.
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py makemigrations
+No changes detected
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py makemigrations
+Migrations for 'app':
+  app\migrations\0001_initial.py
+    - Create model Dojo
+    - Create model Ninja
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying app.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py shell
+Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from app.models import *
+>>> Dojo.objects.create(name="amin",city="ramallh",state="rm")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="saad",city="ramallh",state="rm")
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="khaled",city="ramallh",state="rm")
+<Dojo: Dojo object (3)>
+>>> Dojo.objects.all().delete()
+(3, {'app.Ninja': 0, 'app.Dojo': 3})
+>>> Dojo.objects.create(name="amin",city="ramallh",state="rm")
+<Dojo: Dojo object (4)>
+>>> Dojo.objects.create(name="saad",city="ramallh",state="rm")
+<Dojo: Dojo object (5)>
+>>> Dojo.objects.create(name="khaled",city="ramallh",state="rm")
+<Dojo: Dojo object (6)>
+>>> Ninja.objects.create(dojo_id="Dojo.objects.first()",first_name="thabet",last_name="toma")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\query.py", line 420, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\base.py", line 483, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\fields\related_descriptors.py", line 206, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'Dojo.objects.first()'": "Ninja.dojo_id" must be a "Dojo" instance.
+>>> Ninja.objects.create(dojo_id="Dojo.objects.get(id=5)",first_name="thabet",last_name="toma")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\query.py", line 420, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\base.py", line 483, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "C:\Users\ابداع\Desktop\axsos_academy\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\fields\related_descriptors.py", line 206, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'Dojo.objects.get(id=5)'": "Ninja.dojo_id" must be a "Dojo" instance.
+>>> Ninja.objects.create(dojo_id=Dojo.objects.first(),first_name="thabet",last_name="toma")
+<Ninja: Ninja object (1)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.first(),first_name="ahmad",last_name="toma")
+<Ninja: Ninja object (2)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.first(),first_name="raad",last_name="toma")
+<Ninja: Ninja object (3)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.get(id=5),first_name="hassan",last_name="unknown")
+<Ninja: Ninja object (4)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.get(id=5),first_name="majd",last_name="unknown")
+<Ninja: Ninja object (5)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.get(id=5),first_name="ali",last_name="unknown")
+<Ninja: Ninja object (6)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.get(id=6),first_name="adnan",last_name="unknown")
+<Ninja: Ninja object (7)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.get(id=6),first_name="fraj",last_name="unknown")
+<Ninja: Ninja object (8)>
+>>> Ninja.objects.create(dojo_id=Dojo.objects.get(id=6),first_name="saleh",last_name="amarne")
+<Ninja: Ninja object (9)>
+>>> Dojo.objects.fist().ninjas.__dict__
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Manager' object has no attribute 'fist'
+>>> Dojo.objects.first().ninjas.__dict__
+{'_constructor_args': ((<Dojo: Dojo object (4)>,), {}), 'creation_counter': 16, 'model': <class 'app.models.Ninja'>, 'name': None, '_db': None, '_hints': {}, 'instance': <Dojo: Dojo object (4)>, 'field': <django.db.models.fields.related.ForeignKey: dojo_id>, 'core_filters': {'dojo_id': <Dojo: Dojo object (4)>}}
+>>> Dojo.objects.fist().ninjas.all().values
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Manager' object has no attribute 'fist'
+>>> Dojo.objects.first().ninjas.all().values()
+<QuerySet [{'id': 1, 'dojo_id_id': 4, 'first_name': 'thabet', 'last_name': 'toma'}, {'id': 2, 'dojo_id_id': 4, 'first_name': 'ahmad', 'last_name': 'toma'}, {'id': 3, 'dojo_id_id': 4, 'first_name': 'raad', 'last_name': 'toma'}]>
+>>> Dojo.objects.last().ninjas.all().values()
+<QuerySet [{'id': 7, 'dojo_id_id': 6, 'first_name': 'adnan', 'last_name': 'unknown'}, {'id': 8, 'dojo_id_id': 6, 'first_name': 'fraj', 'last_name': 'unknown'}, {'id': 9, 'dojo_id_id': 6, 'first_name': 'saleh', 'last_name': 'amarne'}]>
+>>> Dojo.objects.first().ninjas.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x0000026FFBC020E0>, 'id': 3, 'dojo_id_id': 4, 'first_name': 'raad', 'last_name': 'toma'}
+>>> Dojo.objects.last().ninjas.last().__dict___
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Ninja' object has no attribute '__dict___'
+>>> Dojo.objects.last().ninjas.last().__dict___
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Ninja' object has no attribute '__dict___'
+>>>
+>>> Dojo.objects.last().ninjas.last().values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Ninja' object has no attribute 'values'
+>>> Dojo.objects.last().ninjas.last()
+<Ninja: Ninja object (9)>
+>>>  Dojo.objects.last().ninjas.last().__dict__
+  File "<console>", line 1
+    Dojo.objects.last().ninjas.last().__dict__
+IndentationError: unexpected indent
+>>>  Dojo.objects.last().ninjas.last().__dict__
+  File "<console>", line 1
+    Dojo.objects.last().ninjas.last().__dict__
+IndentationError: unexpected indent
+>>> Dojo.objects.last().ninjas.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x0000026FFBC029E0>, 'id': 9, 'dojo_id_id': 6, 'first_name': 'saleh', 'last_name': 'amarne'}
+>>> exit()
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py makemigrations
+Migrations for 'app':
+  app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app, auth, contenttypes, sessions
+Running migrations:
+  Applying app.0002_dojo_desc... OK
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\axsos_academy\python_stack\django\DojoNinjas>python manage.py shell
+Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> Dojo.objects.create(name="osaid",city="nablus",state="na")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Dojo' is not defined
+>>> from app.models import *
+>>> Dojo.objects.create(name="osaid",city="nablus",state="na")
+<Dojo: Dojo object (7)>
+>>>
