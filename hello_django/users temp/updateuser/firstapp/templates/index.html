@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0 auto;
+            }
+            h1{
+                margin-left: 42%;
+            }
+
+            div {
+                border-bottom: 1px solid black;
+            }
+            
+            .row1{
+                margin-left: 20%;
+            }
+            .row2{
+                margin-left: 50%;
+                
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>all the Users</h1>
+        <br>
+        <table border="1">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </thead>
+            {%for i in all_user%}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.first_name}} {{i.last_name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.age}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        <br>
+        <div class="bord_bootom"></div>
+        <br>
+        <h1>Add a User</h1>
+        <br>
+        <form action="/handle" method="post">
+            {% csrf_token %}
+            <p class="row1">First Name:<input type="text" name="firstname"></p>
+            <p class="row2">Last Name:<input type="text" name="lastname"></p>
+            <p class="row3">Age:<input type="text" name="age"></p>
+            <p class="row4">Email:<input type="text" name="email"></p>
+            <p class="row5"><select name="fav">
+                    <option value="blue">blue</option>
+                    <option value="green">green</option>
+                    <option value="red">red</option>
+                </select></p>
+            <input type="submit" value="send data">
+        </form>
+    </body>
+
+    </html>
+</body>
+
+</html>
