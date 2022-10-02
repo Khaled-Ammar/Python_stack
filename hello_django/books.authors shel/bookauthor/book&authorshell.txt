@@ -1,0 +1,373 @@
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py shell
+Python 3.6.4 (v3.6.4:d48eceb, Dec 19 2017, 06:54:40) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from app1.models import *
+>>> b1=Book.objects.create(title="C Sharp")
+Traceback (most recent call last):
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\sqlite3\base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: app1_book
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 422, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 1335, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\sqlite3\base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: app1_book
+>>> exit()
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py makemigrations
+Traceback (most recent call last):
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\urls\resolvers.py", line 581, in url_patterns
+    iter(patterns)
+TypeError: 'module' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "manage.py", line 21, in <module>
+    main()
+  File "manage.py", line 17, in main
+    execute_from_command_line(sys.argv)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\management\__init__.py", line 381, in execute_from_command_line
+    utility.execute()
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\management\__init__.py", line 375, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\management\base.py", line 323, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\management\base.py", line 361, in execute
+    self.check()
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\management\base.py", line 390, in check
+    include_deployment_checks=include_deployment_checks,
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\management\base.py", line 377, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\checks\registry.py", line 72, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\checks\urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\checks\urls.py", line 67, in _load_all_namespaces
+    namespaces.extend(_load_all_namespaces(pattern, current))
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\checks\urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\urls\resolvers.py", line 588, in url_patterns
+    raise ImproperlyConfigured(msg.format(name=self.urlconf_name))
+django.core.exceptions.ImproperlyConfigured: The included URLconf '<module 'app1.urls' from 'C:\\Users\\ابداع\\Desktop\\python_stack\\hello_django\\books.authors shel\\bookauthor\\app1\\urls.py'>' does not appear to have any patterns in it. If you see valid patterns in the file then the issue is probably caused by a circular import.
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py makemigrations
+Migrations for 'app1':
+  app1\migrations\0001_initial.py
+    - Create model Book
+    - Create model Publisher
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app1, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying app1.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py shell
+Python 3.6.4 (v3.6.4:d48eceb, Dec 19 2017, 06:54:40) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from app1.models import *
+>>> b1=Book.objects.create(title="C Sharp")
+>>> b1=Book.objects.create(title="Java")
+>>> b1=Book.objects.create(title="python")
+>>> b2=Book.objects.create(title="php")
+>>> b3=Book.objects.create(title="rupy")
+>>> pub1=publisher.objects.create(name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'publisher' is not defined
+>>> pub1=Publisher.objects.create(name="Jane Austen")
+>>> pub2=Publisher.objects.create(name="Emily Dickinson")
+>>> pub3=Publisher.objects.create(name="Fyodor Dostoevsky")
+>>> pub4=Publisher.objects.create(name="William Shakespeare")
+>>> pub5=Publisher.objects.create(name="Lau Tzu")
+>>> exit()
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to publisher without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> 1
+Migrations for 'app1':
+  app1\migrations\0002_publisher_notes.py
+    - Add field notes to publisher
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app1, auth, contenttypes, sessions
+Running migrations:
+  Applying app1.0002_publisher_notes... OK
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 27, 2022 - 14:33:36
+Django version 2.2.4, using settings 'bookauthor.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+(djangoPy3Env) C:\Users\ابداع\Desktop\python_stack\hello_django\books.authors shel\bookauthor>python manage.py shell
+Python 3.6.4 (v3.6.4:d48eceb, Dec 19 2017, 06:54:40) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> c = ClassBook.objects.get(id=1)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'ClassBook' is not defined
+>>> c = Book.objects.get(id=1)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Book' is not defined
+>>> from app1.models import *
+>>> c = Book.objects.get(id=1)
+>>> c.tittle="c#"
+>>> c.save
+<bound method Model.save of <Book: Book object (1)>>
+>>> Publisher.objects.all().values()
+<QuerySet [{'id': 1, 'name': 'Jane Austen', 'notes': '1', 'created_at': datetime.datetime(2022, 9, 27, 10, 57, 3, 445029, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 57, 3, 445029, tzinfo=<UTC>)}, {'id': 2, 'name': 'Emily Dickinson', 'notes': '1', 'created_at': datetime.datetime(2022, 9, 27, 10, 58, 58, 722519, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 58, 58, 722519, tzinfo=<UTC>)}, {'id': 3, 'name': 'Fyodor Dostoevsky', 'notes': '1', 'created_at': datetime.datetime(2022, 9, 27, 10, 59, 39, 193510, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 59, 39, 193510, tzinfo=<UTC>)}, {'id': 4, 'name': 'William Shakespeare', 'notes': '1', 'created_at': datetime.datetime(2022, 9, 27, 11, 0, 36, 749850, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 11, 0, 36, 749850, tzinfo=<UTC>)}, {'id': 5, 'name': 'Lau Tzu', 'notes': '1', 'created_at': datetime.datetime(2022, 9, 27, 11, 1, 23, 317761, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 11, 1, 23, 317761, tzinfo=<UTC>)}]>
+>>> c = Publisher.objects.get(id=4)
+>>> c.name="Bill shakespeare"
+>>> c.save
+<bound method Model.save of <Publisher: Publisher object (4)>>
+>>> Publisher.objects.create(books=Books.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Books.objects.create(books=Publisher.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Publisher.objects.create(books=Books.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Publisher.objects.create(books=Book.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 420, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 496, in __init__
+    _setattr(self, prop, kwargs[prop])
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_descriptors.py", line 538, in __set__
+    % self._get_set_deprecation_msg_params(),
+TypeError: Direct assignment to the forward side of a many-to-many set is prohibited. Use books.set() instead.
+>>> from app1.models import *
+>>> Publisher.objects.create(books=Book.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 420, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 496, in __init__
+    _setattr(self, prop, kwargs[prop])
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_descriptors.py", line 538, in __set__
+    % self._get_set_deprecation_msg_params(),
+TypeError: Direct assignment to the forward side of a many-to-many set is prohibited. Use books.set() instead.
+>>> Publisher.objects.create(books=Books.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Publishers.objects.create(books=Books.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Publishers' is not defined
+>>> Books.objects.create(books=Publishers.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Book.objects.create(books=Publishers.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Publishers' is not defined
+>>> Book.objects.create(book=Publishers.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Publishers' is not defined
+>>> Books.objects.create(book=Publishers.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Books.objects.create(book=Publisher.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Book.objects.create(book=Publisher.objects.get(id=1),name="Jane Austen")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 420, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 501, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: Book() got an unexpected keyword argument 'book'
+>>> Publisher.objects.create(books=Books.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Publisher.objects.create(books=Book.objects.get(id=1),title="c#")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 420, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 496, in __init__
+    _setattr(self, prop, kwargs[prop])
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_descriptors.py", line 538, in __set__
+    % self._get_set_deprecation_msg_params(),
+TypeError: Direct assignment to the forward side of a many-to-many set is prohibited. Use books.set() instead.
+>>> Publisher.objects.get(id=1).books.add(Book.objects.get(id=1),Book.objects.get(id=2)
+...
+... Publisher.objects.get(id=1).books.add(Book.objects.get(id=1),Book.objects.get(id=2))
+  File "<console>", line 3
+    Publisher.objects.get(id=1).books.add(Book.objects.get(id=1),Book.objects.get(id=2))
+            ^
+SyntaxError: invalid syntax
+>>> Publisher.objects.get(id=1).books.add(Book.objects.get(id=1),Book.objects.get(id=2))
+>>>  Publisher.objects.get(id=1).books.values()
+  File "<console>", line 1
+    Publisher.objects.get(id=1).books.values()
+    ^
+IndentationError: unexpected indent
+>>> Publisher.objects.get(id=1).books.values()
+<QuerySet [{'id': 1, 'title': 'C Sharp', 'created_at': datetime.datetime(2022, 9, 27, 10, 48, 3, 160198, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 48, 3, 160198, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'created_at': datetime.datetime(2022, 9, 27, 10, 48, 54, 540166, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 48, 54, 541170, tzinfo=<UTC>)}]>
+>>> Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2)Book.objects.get(id=3))
+  File "<console>", line 1
+    Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2)Book.objects.get(id=3))
+                                                                                          ^
+SyntaxError: invalid syntax
+>>> Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2)Book.objects.get(id=3))
+  File "<console>", line 1
+    Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2)Book.objects.get(id=3))
+                                                                                          ^
+SyntaxError: invalid syntax
+>>> Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2),Book.objects.get(id=3))
+>>> Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2),Book.objects.get(id=3),Book.objects.get(id=4))
+>>> Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.all())
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_descriptors.py", line 938, in add
+    through_defaults=through_defaults,
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1065, in _add_items
+    '%s__in' % target_field_name: new_ids,
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1318, in _add_q
+    split_subq=split_subq, simple_col=simple_col,
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1251, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1116, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_lookups.py", line 59, in get_prep_lookup
+    self.rhs = [target_field.get_prep_value(v) for v in self.rhs]
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\related_lookups.py", line 59, in <listcomp>
+    self.rhs = [target_field.get_prep_value(v) for v in self.rhs]
+  File "C:\Users\ابداع\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\__init__.py", line 966, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'QuerySet'
+>>> Publisher.objects.get(id=2).books.add(Book.objects.get(id=1),Book.objects.get(id=2),Book.objects.get(id=3),Book.objects.get(id=4),Book.objects.get(id=5))
+>>> books.objects.get(id=3).publishers.values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'books' is not defined
+>>> book.objects.get(id=3).publishers.values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'book' is not defined
+>>> Books.objects.get(id=3).publishers.values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Book.objects.get(id=3).publishers.values()
+<QuerySet [{'id': 2, 'name': 'Emily Dickinson', 'notes': '1', 'created_at': datetime.datetime(2022, 9, 27, 10, 58, 58, 722519, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 58, 58, 722519, tzinfo=<UTC>)}]>
+>>> c = books.objects.get(id=3)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'books' is not defined
+>>> c = Book.objects.get(id=3)
+>>> c
+<Book: Book object (3)>
+>>> c.publishers.first()
+<Publisher: Publisher object (2)>
+>>> y = c.publishers.first()
+>>> y.delete()
+(6, {'app1.Publisher_books': 5, 'app1.Publisher': 1})
+>>> y = c.publishers.first()
+>>> y.delete()
+(6, {'app1.Publisher_books': 5, 'app1.Publisher': 1})
+>>> Publisher.objects.get(id=5).books.add(Book.objects.get(id=2))
+ >>> Publisher.objects.get(id=3).books.values()
+<QuerySet [{'id': 1, 'title': 'C Sharp', 'created_at': datetime.datetime(2022, 9, 27, 10, 48, 3, 160198, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 48, 3, 160198, tzinfo=<UTC>)}, {'id': 2, 'title': 'Java', 'created_at': datetime.datetime(2022, 9, 27, 10, 48, 54, 540166, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 48, 54, 541170, tzinfo=<UTC>)}, {'id': 3, 'title': 'python', 'created_at': datetime.datetime(2022, 9, 27, 10, 49, 23, 648058, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 49, 23, 648058, tzinfo=<UTC>)}, {'id': 4, 'title': 'php', 'created_at': datetime.datetime(2022, 9, 27, 10, 50, 3, 532119, tzinfo=<UTC>), 'updated_at': datetime.datetime(2022, 9, 27, 10, 50, 3, 532119, tzinfo=<UTC>)}]> 

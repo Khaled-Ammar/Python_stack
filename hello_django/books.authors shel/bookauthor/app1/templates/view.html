@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{book.id}}</p>
+    <p>{{book.title}}</p>
+    {%for pub in book.publishers.all%}
+    <p> >> {{pub.name}}</p>
+    {%endfor%}
+
+    <form method="post" action="/pubtobook/{{book.id}}">
+    {%csrf_token%}
+    <select name="pub to book">
+        {%for p in allpublishers%}
+        <option value="{{p.id}}">{{p.name}}</option>
+        {%endfor%}
+    </select>
+    <input type="submit" value="add publisher">
+</form>
+</body>
+</html>
