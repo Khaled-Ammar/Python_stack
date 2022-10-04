@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    title : {{onebook.title}}
+    id : {{onebook.id}}
+    describtion :{{onebook.description}}
+
+{%for a in onebook.authors.all%}
+<p>{{a.first_name}}{{a.last_name}}</p>
+
+{%endfor%}
+<form action="/authbook/{{onebook.id}}" method="post">
+    {%csrf_token%}
+<select name="authors" id="">
+    {% for au in all_authors%}
+    <option value="{{au.id}}">{{au.first_name}}{{au.last_name}}</option>
+{%endfor%}
+</select>
+<input type="submit" value="add">
+</form>
+</body>
+</html>

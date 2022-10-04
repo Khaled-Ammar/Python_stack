@@ -10,12 +10,16 @@ def result(request):
     RandomNumber = request.session['random']
     request.session['num'] = RandomNumber
     YourNumber = int(request.POST['number'])
+    
     if YourNumber == RandomNumber:
         request.session['result'] = "Great Guess"
+
     elif YourNumber > RandomNumber:
         request.session['result'] = "High"
+
     elif YourNumber < RandomNumber:
         request.session['result'] = "Looooow"
+
     return redirect ('/show')
 
 def res(request):

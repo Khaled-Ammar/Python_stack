@@ -6,8 +6,8 @@ def gold(request):
     if 'money' not in request.session or 'activities' not in request.session:
         request.session['money'] =0
         request.session['activities'] = []
-        
     return render(request, 'index.html')
+
 def processMoney(request):
     if request.POST['money']=='farm':
         randomNum = random.randint(10,20)
@@ -22,7 +22,6 @@ def processMoney(request):
         randomNum = random.randint(10,20)
         request.session['money'] +=randomNum
         request.session['activities'].append('You entered a house' +" "+ ' and earned ' +str(randomNum)   +". "+ '(' + str(datetime.now().strftime("%b-%d-%Y %H:%M-%p")) + ')')
-
     else:
         randomNum = random.randint(-50, 50)
         if randomNum > 0:
@@ -32,6 +31,7 @@ def processMoney(request):
 
         request.session['money'] +=randomNum
     return redirect('/')
+    
 def reset(request):
     request.session['money'] =0
     request.session['activities'] = []
