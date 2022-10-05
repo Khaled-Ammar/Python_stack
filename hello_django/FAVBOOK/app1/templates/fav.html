@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .des {
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            font-family: cursive;
+        }
+
+        span {
+            color: red;
+        }
+
+        .btn {
+            background-color: blueviolet;
+            color: yellow;
+            box-shadow: 2px 2px 2px 2px black;
+            margin-left: 50px;
+        }
+
+        .log {
+            margin-top: 40px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome {{user}}</h1>
+        <a class="log" href="/delete">Log Out</a>
+    </header>
+    <hr>
+    <main>
+        {%if ourbook.uploaded_by.id == request.session.id%}
+        <div class="left">
+            <form action="/deleteUpdate/{{ourbook.id}}" method="post">
+                {% csrf_token %}
+                <span>
+                    <h3>Title:<input type="text" value="{{ourbook.title}}" name="newtitle"></h3>
+                </span>
+                <h3> <span> Added By </span> : {{ourbook.uploaded_by.first_name}}</h3>
+                <h3><span>Added on</span> : {{time}}</h3>
+                <h3><span>Descreption</span> : {{ourbook.desc}}</h3>
+                <h3 class="des"><span>Descreption</span> : <textarea name="newdesc" cols="40" rows="3"></textarea></h3>
+                <p>
+                    <input class="btn" type="submit" value="Update" name="which">
+                    <input class="btn" type="submit" value="Delete" name="which">
+                </p>
+            </form>
+            <a href="/main">Main Page</a>
+        </div>
+        <aside>
+            <h3>Users who like this book :</h3>
+            {%for users in thisbook%}
+            {%if users.id == request.session.id%}
+            <p>{{users.first_name}} {{users.last_name}} <a href="/remove/{{ourbook.id}}">UnFavorite</a></p>
+            {%else%}
+            <p>{{users.first_name}} {{users.last_name}}</p>
+            {%endif%}
+            {%endfor%}
+            {%if u in thisbook%}
+            {%else%}
+            <a href="/addtofav/{{ourbook.id}}">Add to favorites</a>
+            {%endif%}
+        </aside>
+    </main>
+    {%else%}
+    <div class="left">
+        <div>
+            <h1>Title :{{ourbook.title}}</h1>
+        </div>
+        <h3> <span> Added By : </span> {{ourbook.uploaded_by.first_name}}</h3>
+        <h3> <span> Added on : </span> {{time}}</h3>
+        <h3> <span> Descreption :</span> {{ourbook.desc}} </h3>
+        <a href="/main">Main Page</a>
+    </div>
+    <aside>
+        <h3>Users who like this book :</h3>
+        {%for users in thisbook%}
+        {%if users.id == request.session.id%}
+        <p>{{users.first_name}} {{users.last_name}} <a href="/remove/{{ourbook.id}}">UnFavorite</a></p>
+        {%else%}
+        <p>{{users.first_name}} {{users.last_name}}</p>
+        {%endif%}
+        {%endfor%}
+        {%if u in thisbook%}
+        {%else%}
+        <a href="/addtofav/{{ourbook.id}}">Add to favorites</a>
+        {%endif%}
+    </aside>
+    </main>
+    {%endif%}
+
+
+
+</body>
+
+</html>

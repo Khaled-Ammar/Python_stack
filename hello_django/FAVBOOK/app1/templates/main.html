@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        * {
+            font-family: cursive;
+        }
+
+        .btn {
+            background-color: blueviolet;
+            color: yellow;
+            box-shadow: 2px 2px 2px 2px black;
+        }
+
+        aside {
+            text-align: center;
+        }
+
+        h2,
+        h1 {
+            color: red;
+        }
+
+        .book {
+            background-color: grey;
+            width: 400px;
+            height: 200px;
+            padding-top: 70px;
+
+        }
+
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+
+        p {
+            color: white;
+        }
+
+        .log {
+            margin-top: 40px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome {{user}}</h1>
+        <a class="log" href="/delete">Log Out</a>
+    </header>
+    <hr>
+    <main>
+        <div class="left">
+            <form action="/fav" method="post">
+                {% csrf_token %}
+                <h2>Add a Favorite Book</h2>
+                <table>
+                    <tr>
+                        <p>
+                            <td> Title:</td>
+                            <td><input type="text" name="title"></td>
+                        </p>
+                    </tr>
+                    <tr>
+                        <p>
+                            <td>Descreption:</td>
+                            <td><input type="text" name="Descreption"></td>
+                        </p>
+                    </tr>
+                    <tr>
+                        <p>
+                            <td><input class="btn" type="submit" value="Add">
+                        </p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <aside>
+            <h2>All Books:</h2>
+            {% for bk in booksall reversed%}
+            <div class="book">
+                <a href="/books/{{bk.id}}">{{bk.title}}</a>
+                <p>Added By {{bk.uploaded_by.first_name}} {{bk.uploaded_by.last_name}}</p>
+                {%if bk in userFav%}
+                <p>You liked this Book</p>
+                {%else%}
+                <a href="/addtofav/{{bk.id}}">Add to Favorite</a>
+                {%endif%}
+            </div>
+            <p>------------------------------------------------</p>
+            {%endfor%}
+        </aside>
+    </main>
+
+
+
+
+</body>
+
+</html>
