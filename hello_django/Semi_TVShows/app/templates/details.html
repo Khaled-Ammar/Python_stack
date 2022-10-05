@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details of Show</title>
+    <style>
+        main {
+            margin-left: 550px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-family: cursive;
+            color: red;
+        }
+
+        p {
+            font-family: cursive;
+
+        }
+
+        a {
+            font-family: cursive;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Tv Show {{show.id}}</h1>
+        <p>Title : {{show.title}}</p>
+        <p>Network : {{show.network}}</p>
+        <p>Relase Date : {{show.relaseDate}}</p>
+        <p>Descreption : {{show.description}}</p>
+
+        <footer>
+            <p>Last Updated : {{time}}</p>
+            <a href="/shows/{{show.id}}/edit">Edit</a>
+            <a href="/shows/{{show.id}}/destroy">Delete</a>
+        </footer>
+        <a href="/">Add a New Show</a><br>
+        <a href="/">Go Back</a>
+    </main>
+</body>
+
+</html>

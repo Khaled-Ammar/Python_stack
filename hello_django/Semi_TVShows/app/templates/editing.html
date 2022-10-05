@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing show</title>
+    <style>
+        p,
+        h1 {
+            font-family: cursive;
+            color: red;
+        }
+
+        span {
+            display: flex;
+            justify-content: flex-start
+        }
+
+        main {
+            width: 25%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        a {
+            font-family: cursive;
+            color: blue;
+        }
+
+        .btn {
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: purple;
+            font-family: cursive;
+            color: white;
+        }
+
+        .opn {
+            font-size: 13px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form action="/shows/{{show.id}}/update" method="post">
+            {% csrf_token %}
+            <p>New Title <span><input type="text" name="title" value="{{show.title}}"></span></p>
+            <p>New Network <span><input type="text" name="network" value="{{show.network}}"></span> </p>
+            <p>New Relase Date <span> <input type="date" name="date" value={{show.relaseDate |date:'Y-m-d'}}></span>
+            </p>
+            <p>New Descreptin <span class="opn">(Optional)</span> <span><textarea name="desc" cols="30" rows="10"
+                        placeholder="{{show.description}}"></textarea></span> </textarea></p>
+            <p><input class="btn" type="submit" value="Update"></p>
+        </form>
+        <a href="/">Add a New Show</a><br>
+        <a href="/">Go Back</a> <br>
+    </main>
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+
+</html>

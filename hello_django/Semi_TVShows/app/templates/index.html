@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new show</title>
+    <style>
+        p,h1 {
+            font-family: cursive;
+            color: red;
+        }
+
+        main {
+            width: 25%;
+            margin: 0 auto;
+        }
+
+        a {
+            font-family: cursive;
+            color: blue;
+        }
+
+        span {
+            display: flex;
+            justify-content: flex-start
+        }
+
+        .btn {
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: purple;
+            font-family: cursive;
+            color: white;
+        }
+
+        .opn {
+            font-size: 13px;
+            color: blue;
+        }
+
+        li {
+            font-family: cursive;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <form action="/shows/create/" method="POST">
+            {% csrf_token %}
+            <h1>Add A New Show</h1>
+            <a href="shows/">Show All Shows</a><br>
+            <p>Title <span><input type="text" name="title"></span> </p>
+            <p>Network <span><input type="text" name="network"></span> </p>
+            <p>Relase Date <span><input type="date" name="date"></span> </p>
+            <p>Descreptin<span class="opn">(Optional)</span> <span><textarea name="desc" cols="30"
+                    rows="10"></textarea></span> </textarea></p>
+            <p><input class="btn" type="submit" value="Create"></p>
+        </form>
+    </main>
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+
+</html>
