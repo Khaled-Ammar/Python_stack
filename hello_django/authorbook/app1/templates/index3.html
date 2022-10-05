@@ -10,20 +10,21 @@
 
 <body>
     <h1>ad book</h1>
-    <form action="/addbook" method="POST">
+    <form action="/addauthor" method="POST">
         {%csrf_token%}
-        <p>title <input type="text" name="title"></p>
-        <p>description <input type="text" name="desc"></p>
+        <p>first name <input type="text" name="first_name"></p>
+        <p>last name <input type="text" name="last_name"></p>
+        <p>Notes <input type="text" name="notes"></p>
         <input type="submit" value="add">
     </form>
 
     <hr>
     <table border="1">
-        {%for b in all_books %}
+        {%for a in all_authors%}
         <tr>
-            <td>{{b.id}}</td>
-            <td>{{b.title}}</td>
-            <td><a href="/books/{{b.id}}">view</a> </td>
+            <td>{{a.id}}</td>
+            <td>{{a.first_name}}{{a.last_name}} </td>
+            <td><a href="/authors/{{a.id}}">view</a> </td>
         </tr>
         {%endfor%}
     </table>

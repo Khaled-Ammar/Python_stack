@@ -9,19 +9,20 @@
 </head>
 
 <body>
-    title : {{onebook.title}}
-    id : {{onebook.id}}
-    describtion :{{onebook.description}}
+    name : {{oneauthor.first_name}}{{oneauthor.first_name}}
+    id : {{oneauthor.id}}
+    Notes:{{oneauthor.notes}}
 
-    {%for a in onebook.authors.all%}
-    <p>{{a.first_name}}{{a.last_name}}</p>
-
+    {%for a in all%}
+        
+    <p>{{a.title}}{{a.last_name}}</p>
     {%endfor%}
-    <form action="/authbook/{{onebook.id}}" method="post">
+    
+    <form action="/authbook/{{oneauthor.id}}" method="post">
         {%csrf_token%}
-        <select name="authors" id="">
-            {% for au in all_authors%}
-            <option value="{{au.id}}">{{au.first_name}}{{au.last_name}}</option>
+        <select name="books" id="">
+            {% for b in all_books%}
+            <option value="{{b.id}}">{{b.title}}</option>
             {%endfor%}
         </select>
         <input type="submit" value="add">
