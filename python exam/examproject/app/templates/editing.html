@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing show</title>
+    <style>
+        p,
+        h1 {
+            font-family: cursive;
+            color: red;
+        }
+
+        span {
+            display: flex;
+            justify-content: flex-start
+        }
+
+        main {
+            width: 25%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        a {
+            font-family: cursive;
+            color: blue;
+        }
+
+        .btn {
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: purple;
+            font-family: cursive;
+            color: white;
+        }
+
+        .opn {
+            font-size: 13px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <a href="/mytree">Mytrees</a>
+        <h1> Welcome {{request.session.first_name}}</h1>
+        <p>{{request.session.WhatWeDo}}</p>
+<!-- --------------------------------------------------------- -->
+        <a href="/delete">Log Out</a>
+        <a href="/toall">Dash board</a>
+    </main>
+
+
+    <main>
+        <form action="/plans/{{Plan.id}}/update" method="post">
+            {% csrf_token %}
+            <p>New Species <span><input type="text" name="Species" value="{{plan.Species}}"></span></p>
+            <p>New Planted By <span><input type="text" name="Planted_By" value="{{plan.Planted_By}}"></span> </p>
+            <p>New Date planted <span> <input type="date" name="date" value={{plan.relaseDate |date:'Y-m-d'}}></span>
+            </p>
+            
+                
+            <p><input class="btn" type="submit" value="Update"></p>
+        </form>
+        <a href="/">Add a New Plan</a><br>
+        <a href="/">Go Back</a> <br>
+    </main>
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <a href="/mytree">Mytrees</a>
+        <h1> Welcome {{request.session.first_name}}</h1>
+        <p>{{request.session.WhatWeDo}}</p>
+<!-- --------------------------------------------------------- -->
+        <a href="/delete">Log Out</a>
+        <a href="/toall">Dash board</a>
+    </main>
+
+<h1>Manage My Trees</h1>
+
+<table border="1">
+    <thead >
+        <td class="head">Species</td>
+        <td class="head">Date planted</td>
+        <td class="head">Action</td>
+    </thead>
+    <tr>
+        {% for p in user.plans_uploded.all %}
+        <td>{{p.Species}}</td>
+        <td>{{p.relaseDate}}</td>
+        <td>
+            <a href="/plans/{{p.id}}/destroy" >delete</a>|
+            <a href="/plans/{{p.id}}/edit" >edit</a>|
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>

@@ -31,6 +31,8 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
     objects=UserManager()
 
+# ---------------------------------------------------------
+
 class Book(models.Model):
     title = models.CharField(max_length=255)
     desc= models.TextField()

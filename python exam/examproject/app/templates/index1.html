@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new show</title>
+    <style>
+        /* p,
+        h1 {
+            font-family: cursive;
+            color: red;
+        }
+
+        main {
+            width: 25%;
+            margin: 0 auto;
+        }
+
+        a {
+            font-family: cursive;
+            color: blue;
+        }
+
+        /* span {
+            display: flex;
+            justify-content: flex-start
+        } */
+
+
+        .btn {
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: purple;
+            font-family: cursive;
+            color: white;
+        }
+
+        .opn {
+            font-size: 13px;
+            color: blue;
+        }
+
+        li {
+            font-family: cursive;
+        }
+
+        */
+    </style>
+
+</head>
+
+<body>
+    <main class="main1">
+
+        <main>
+            <a href="/mytree">Mytrees</a>
+            <h1> Welcome {{request.session.first_name}}</h1>
+            <p>{{request.session.WhatWeDo}}</p>
+            <!-- --------------------------------------------------------- -->
+            <a href="/delete">Log Out</a>
+            <a href="/toall">Dash board</a>
+        </main>
+        <hr>
+        <main>
+            <h1>Arbortrary</h1>
+            <p>A site to track rondorNy planted trees</p>
+            <a href="plans/">Arbortrary plant a tree</a><br>
+            <form action="/plans/create/" method="POST">
+                {% csrf_token %}
+                <p>Species <span><input type="text" name="Species"></span> </p>
+                <p>location <span><input type="text" name="location"></span> </p>
+                <p>Reason <span><input type="text" class="opn" name="reason"> </span>
+                </p>
+                <p> Date planted <span><input type="date" name="date"></span> </p>
+                <p><input class="btn" type="submit" value="Create"></p></a>
+            </form>
+        </main>
+        <div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+</body>
+
+</html>

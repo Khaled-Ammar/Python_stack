@@ -3,7 +3,6 @@ import bcrypt
 from django.shortcuts import render ,redirect
 from .models import *
 from django.contrib import messages
-import bcrypt
 from time import gmtime, strftime
 
 def index(request):
@@ -40,9 +39,11 @@ def login(request):
             request.session['WhatWeDo']='Successfully Logged in'
             return redirect('/MainPage')
         else:
-            messages.error(request , 'Email or Password is incorect')
+            messages.error(request , 'Email or Password is incorrect')
         return redirect('/')
     return redirect('/')
+
+# -----------------------------------------------------------------------------------------------------------------
 
 def logout(request):
     del request.session['first_name']
@@ -68,7 +69,6 @@ def fav(request):
         return redirect ('/MainPage')
 
 def BookDetails(request , id):
-    
     context={
         'u': User.objects.get(id=request.session['id']),
         'user' : User.objects.get(id=request.session['id']).first_name,

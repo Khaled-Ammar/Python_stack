@@ -6,6 +6,9 @@ urlpatterns = [
     path('create' , views.create),
     path('success' , views.success),
     path('login',views.login),
+
+# ----------------------------------------------------
+
     path('delete' , views.logout),
     path('MainPage' , views.mainpage),
     path('fav' , views.fav),
