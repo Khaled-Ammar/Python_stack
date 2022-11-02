@@ -1,1 +1,1 @@
-call C:\Users\ابداع\Desktop\python_stack\my_environments\env\Scripts\activate
+call C:\Users\Khaled\Desktop\Python_stack-master\my_environments\env\Scripts\activate
